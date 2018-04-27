@@ -1,4 +1,6 @@
 from math import e, pi
+from matplotlib import pyplot
+
 
 class DFT(object):
 	"""docstring for DFT"""
@@ -28,24 +30,30 @@ class DFT(object):
 		for i in range (self.input_size):
 			coff = 0
 			for j in range (self.input_size):
-				coff += (unity_root ** (i*j)) * self.input_function[i] 
+				coff += (unity_root ** (i*j)) * self.input_function[j] 
 
 			self.fourier_cofficients.append(coff)
 
 	def print_fourier_cofficients(self):
 		for i in self.fourier_cofficients:
-			print(complex(round(i.real, 4), round(i.imag, 4)))
+			print(i)
 
 	def calculate(self):
 		unity_root = self.get_unity_root()
-		self.set_fourier_cofficients(unity_root)		
+		self.set_fourier_cofficients(unity_root)
+
+	def plot(self):	
+		pyplot.bar([0.1,2,3], [0.4,0.5,0.6], width = 0.05)
+		pyplot.show()	
 
 def main():
 	dft = DFT()
 	dft.set_input_function()
-	# dft.print_input_function()
+	dft.print_input_function()
 	dft.calculate()
 	dft.print_fourier_cofficients()
+	dft.plot()
+	
 
 if __name__ == '__main__':
 	main()
