@@ -35,21 +35,26 @@ class DFT(object):
 			self.fourier_cofficients.append(coff)
 
 	def print_fourier_cofficients(self):
-		for i in self.fourier_cofficients:
-			print(i)
+		for i in range(len(self.fourier_cofficients)):
+			print('X[{}] : '.format(i), self.fourier_cofficients[i])
 
 	def calculate(self):
 		unity_root = self.get_unity_root()
 		self.set_fourier_cofficients(unity_root)
 
-	def plot(self):	
-		pyplot.bar([0.1,2,3], [0.4,0.5,0.6], width = 0.05)
+	def plot(self):
+		x_values = [int(x) for x in range(self.input_size)]
+		y_values = [abs(x) for x in self.fourier_cofficients]
+		pyplot.bar(x_values, y_values, width = 0.05)
+		pyplot.axhline(0, color = 'grey')
+		pyplot.title('Fourier Cofficients')
+		pyplot.xlabel('n')
+		pyplot.ylabel('modulus')
 		pyplot.show()	
 
 def main():
 	dft = DFT()
 	dft.set_input_function()
-	dft.print_input_function()
 	dft.calculate()
 	dft.print_fourier_cofficients()
 	dft.plot()
