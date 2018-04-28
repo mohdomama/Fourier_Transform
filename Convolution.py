@@ -50,6 +50,9 @@ class Convolution(object):
 				print(end = '  ')
 		print()
 
+	def get_convolution(self):
+		return self.convolution
+		
 	def plot(self):
 		x_values = [int(x) - self.convolution_pos for x in range(len(self.convolution))]
 		y_values = self.convolution

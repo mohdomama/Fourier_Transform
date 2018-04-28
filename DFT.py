@@ -1,9 +1,9 @@
 from math import e, pi
 from matplotlib import pyplot
 
-
 class DFT(object):
 	"""docstring for DFT"""
+
 	def __init__(self):
 		super(DFT, self).__init__()
 		self.fourier_cofficients = []
@@ -41,6 +41,9 @@ class DFT(object):
 	def calculate(self):
 		unity_root = self.get_unity_root()
 		self.set_fourier_cofficients(unity_root)
+
+	def get_DFT(self):
+		return self.fourier_cofficients()
 
 	def plot(self):
 		x_values = [int(x) for x in range(self.input_size)]

@@ -1,9 +1,9 @@
 from math import e, pi
 from matplotlib import pyplot
 
-
 class IDFT(object):
 	"""docstring for IDFT"""
+
 	def __init__(self):
 		super(IDFT, self).__init__()
 		self.time_domain = []
@@ -41,6 +41,9 @@ class IDFT(object):
 	def calculate(self):
 		unity_root = self.get_unity_root()
 		self.set_time_domain(unity_root)
+
+	def get_IDFT(self):
+		return self.time_domain
 
 	def plot(self):
 		x_values = [int(x) for x in range(self.input_size)]
