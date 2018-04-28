@@ -1,5 +1,9 @@
+import sys
 from math import e, pi
-from matplotlib import pyplot
+try:
+	from matplotlib import pyplot
+except Exception as e:
+	print('Module matplotlib not present! Graph will not be plotted')
 
 class IDFT(object):
 	"""docstring for IDFT"""
@@ -49,7 +53,7 @@ class IDFT(object):
 		x_values = [int(x) for x in range(self.input_size + 1)]
 		y_values = [abs(x) for x in self.time_domain]
 		y_values.append(0)
-		
+
 		pyplot.bar(x_values, y_values, width = 0.05)
 		pyplot.axhline(0, color = 'red')
 		pyplot.title('Fourier Cofficients')
@@ -62,7 +66,8 @@ def main():
 	idft.set_input_function()
 	idft.calculate()
 	idft.print_time_domain()
-	idft.plot()
+	if 'matplotlib' in sys.modules:
+		idft.plot()
 	
 
 if __name__ == '__main__':

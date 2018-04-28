@@ -1,4 +1,8 @@
-from matplotlib import pyplot
+import sys
+try:
+	from matplotlib import pyplot
+except Exception as e:
+	print('Module matplotlib not present! Graph will not be plotted')
 
 class Convolution(object):
 	"""docstring for Convolution"""
@@ -72,7 +76,8 @@ def main():
 	convolution.take_input()
 	convolution.calculate()
 	convolution.print_convolution()
-	convolution.plot()
+	if 'matplotlib' in sys.modules:
+		convolution.plot()
 
 if __name__ == '__main__':
 	main()
