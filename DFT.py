@@ -46,13 +46,14 @@ class DFT(object):
 		return self.fourier_cofficients()
 
 	def plot(self):
-		x_values = [int(x) for x in range(self.input_size)]
+		x_values = [int(x) for x in range(self.input_size + 1)]
 		y_values = [abs(x) for x in self.fourier_cofficients]
+		y_values.append(0)
 		pyplot.bar(x_values, y_values, width = 0.05)
-		pyplot.axhline(0, color = 'grey')
+		pyplot.axhline(0, color = 'red')
 		pyplot.title('Fourier Cofficients')
 		pyplot.xlabel('n')
-		pyplot.ylabel('modulus')
+		pyplot.ylabel('| X[n] |')
 		pyplot.show()	
 
 def main():

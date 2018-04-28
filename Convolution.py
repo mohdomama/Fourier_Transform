@@ -52,12 +52,15 @@ class Convolution(object):
 
 	def get_convolution(self):
 		return self.convolution
-		
+
 	def plot(self):
-		x_values = [int(x) - self.convolution_pos for x in range(len(self.convolution))]
+		x_values = [int(x) - self.convolution_pos for x in range(len(self.convolution) + 1)]
 		y_values = self.convolution
+		y_values.append(0)
+
 		pyplot.bar(x_values, y_values, width = 0.05)
-		pyplot.axhline(0, color = 'grey')
+		pyplot.axvline(0, color='red')
+		pyplot.axhline(0, color = 'red')
 		pyplot.title('Convolution')
 		pyplot.xlabel('n')
 		pyplot.ylabel('Y[n]')
