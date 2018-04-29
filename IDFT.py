@@ -1,6 +1,6 @@
 import sys
 from math import e, pi
-try:
+try: 
 	from matplotlib import pyplot
 except Exception as e:
 	print('Module matplotlib not present! Graph will not be plotted')
